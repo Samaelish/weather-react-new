@@ -59,14 +59,25 @@ const Weather = () => {
     }
   }
 
+  const handleKeyDown = event => {
+    if (event.keyCode === 13) {
+      console.log('Enter key pressed')
+    }
+  }
+
   useEffect(() => {
-    search('Moscow')
+    // search('Moscow')
   }, [])
 
   return (
     <div className='weather'>
       <div className='search-bar'>
-        <input ref={inputRef} type='text' placeholder='Search' />
+        <input
+          ref={inputRef}
+          type='text'
+          placeholder='Search'
+          onKeyDown={e => (e.keyCode === 13 ? search(inputRef.current.value) : '')}
+        />
         <img src={search_icon} alt='search icon' onClick={() => search(inputRef.current.value)} />
       </div>
       {weatherData ? (
