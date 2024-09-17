@@ -7,10 +7,10 @@ import humidity_icon from '../assets/humidity.png'
 import rain_icon from '../assets/rain.png'
 import snow_icon from '../assets/snow.png'
 import wind_icon from '../assets/wind.png'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 
 const Weather = () => {
-  const inputRef = useRef()
+  const [inputValue, setInputValue] = useState('')
   const [weatherData, setWeatherData] = useState(false)
   const allIcons = {
     '01d': clear_icon,
@@ -73,12 +73,13 @@ const Weather = () => {
     <div className='weather'>
       <div className='search-bar'>
         <input
-          ref={inputRef}
+          value={inputValue}
+          onChange={e => setInputValue(e.target.value)}
           type='text'
           placeholder='Search'
-          onKeyDown={e => (e.keyCode === 13 ? search(inputRef.current.value) : '')}
+          onKeyDown={e => (e.keyCode === 13 ? search(inputValue) : '')}
         />
-        <img src={search_icon} alt='search icon' onClick={() => search(inputRef.current.value)} />
+        <img src={search_icon} alt='search icon' onClick={() => search(inputValue)} />
       </div>
       {weatherData ? (
         <>
