@@ -66,7 +66,7 @@ const Weather = () => {
   }
 
   useEffect(() => {
-    // search('Moscow')
+    search('Moscow')
   }, [])
 
   return (
