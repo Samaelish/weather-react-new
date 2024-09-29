@@ -59,12 +59,6 @@ const Weather = () => {
     }
   }
 
-  const handleKeyDown = event => {
-    if (event.keyCode === 13) {
-      console.log('Enter key pressed')
-    }
-  }
-
   useEffect(() => {
     search('Moscow')
   }, [])
