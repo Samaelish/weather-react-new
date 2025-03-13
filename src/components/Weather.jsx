@@ -70,7 +70,7 @@ const Weather = () => {
           value={inputValue}
           onChange={e => setInputValue(e.target.value)}
           type='text'
-          placeholder='Search'
+          placeholder='Поиск'
           onKeyDown={e => (e.keyCode === 13 ? search(inputValue) : '')}
         />
         <img src={search_icon} alt='search icon' onClick={() => search(inputValue)} />
@@ -85,14 +85,14 @@ const Weather = () => {
               <img src={humidity_icon} alt='humidity icon' />
               <div>
                 <p>{weatherData.humidity} %</p>
-                <span>Humidity</span>
+                <span>Влажность</span>
               </div>
             </div>
             <div className='col'>
               <img src={wind_icon} alt='wind icon' />
               <div>
                 <p>{weatherData.windSpeed}</p>
-                <span>Wind Speed</span>
+                <span>Скорость ветра</span>
               </div>
             </div>
           </div>
