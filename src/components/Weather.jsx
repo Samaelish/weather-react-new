@@ -31,7 +31,7 @@ const Weather = () => {
 
   const search = async city => {
     if (city === '') {
-      alert('Enter City name')
+      alert('Введите название города')
       return
     }
     try {
