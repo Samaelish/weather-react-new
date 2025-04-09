@@ -35,7 +35,7 @@ const Weather = () => {
       return
     }
     try {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=ru&appid=${
         import.meta.env.VITE_APP_ID
       }`
       const response = await fetch(url)
@@ -71,7 +71,7 @@ const Weather = () => {
           onChange={e => setInputValue(e.target.value)}
           type='text'
           placeholder='Поиск'
-          onKeyDown={e => (e.keyCode === 13 ? search(inputValue) : '')}
+          onKeyDown={e => (e.key === 'Enter' ? search(inputValue) : '')}
         />
         <img src={search_icon} alt='search icon' onClick={() => search(inputValue)} />
       </div>
